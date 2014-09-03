@@ -1,19 +1,18 @@
 FED2
 ====
-#Algemeen
+##Algemeen
 
-Ziet er netjes en verzorgd uit
-Heeft minimale comments
+- Ziet er netjes en verzorgd uit
+- Heeft minimale comments
 
-CSS
+##CSS
 
-CSS staat in CSS file en niet via JS
+- CSS staat in CSS file en niet via JS
 
-HTML
+##HTML
 
-Semantisch
+- Semantisch
 
+##JS
 
-JS
-
-Werkt
+- Werkt
