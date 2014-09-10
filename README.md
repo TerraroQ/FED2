@@ -3,7 +3,6 @@ FED2
 ##Algemeen
 
 - Ziet er netjes en verzorgd uit
-- Heeft minimale comments
 
 ##CSS
 
@@ -16,3 +15,7 @@ FED2
 ##JS
 
 - Werkt
+- Testen voor aannemen
+- Logische naamgeving (camelcase)
+- Overzichtelijke structuur
+- Heeft minimale comments
