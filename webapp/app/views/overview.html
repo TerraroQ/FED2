@@ -3,59 +3,24 @@
 {% block content %}
 
 <section data-route="movies">
-	<h1>{{start.title}}</h1>	
+	<h1>{{start.title}}</h1>
+
+{% for articles in articles %}	
 	<article>
 		<header>
-			<h1>{{articles.article_1.title}}</h1>
-			<em>{{articles.article_1.release}}<time>{{articles.article_1.date}}</time></em>
+			<h1>{{articles.title}}</h1>
+			<em>{{articles.release}}<time>{{articles.date}}</time></em>
 		</header>
 
 		<figure>
-			<img src="{{articles.article_1.image}}" alt="">
+			<img src="{{articles.image}}" alt="">
 		</figure>
 
-		<p>{{articles.article_1.p}}</p>
+		<p>{{articles.p}}</p>
 	</article>	
 
-	<article>
-		<header>
-			<h1>{{articles.article_2.title}}</h1>
-			<em>{{articles.article_2.release}}<time>{{articles.article_2.date}}</time></em>
-		</header>
+{% endfor %}
 
-		<figure>
-			<img src="{{articles.article_2.image}}" alt="">
-		</figure>
-
-		<p>{{articles.article_2.p}}</p>
-	</article>	
-
-	<article>
-		<header>
-			<h1>{{articles.article_3.title}}</h1>
-			<em>{{articles.article_3.release}}<time>{{articles.article_3.date}}</time></em>
-		</header>
-
-		<figure>
-			<img src="{{articles.article_3.image}}" alt="">
-		</figure>
-
-		<p>{{articles.article_3.p}}</p>
-	</article>	
-
-	<article>
-		<header>
-			<h1>{{articles.article_4.title}}</h1>
-			<em>{{articles.article_4.release}}<time>{{articles.article_4.date}}</time></em>
-		</header>
-
-		<figure>
-			<img src="{{articles.article_4.image}}" alt="">
-		</figure>
-
-		<p>{{articles.article_4.p}}</p>
-	</article>
-	
 </section>
 
 {% endblock %}

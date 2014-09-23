@@ -2,17 +2,40 @@
 {% block classname %}homepage{% endblock %}
 {% block content %}
 
-<section data-route="about">
+<section id="about" class="hide" data-route="about">
 	<section>
 		<header>
-			<h1>{{start.title}}</h1>
+			<h1>{{about.title}}</h1>
 
-			<p>{{start.p_1}}</p>
-			<p>{{start.p_2}}</p>
-			<p>{{start.p_3}}</p>
-			<p>{{start.p_4}}</p>
+			<p>{{about.p_1}}</p>
+			<p>{{about.p_2}}</p>
+			<p>{{about.p_3}}</p>
+			<p>{{about.p_4}}</p>
 		</header>
 	</section>
 </section>
+
+<section id="overview" class="hide" data-route="movies">
+	<h1>{{overview.title}}</h1>
+
+{% for articles in overview.articles %}	
+	<article>
+		<header>
+			<h1>{{articles.title}}</h1>
+			<em>{{articles.release}}<time>{{articles.date}}</time></em>
+		</header>
+
+		<figure>
+			<img src="{{articles.image}}" alt="">
+		</figure>
+
+		<p>{{articles.p}}</p>
+	</article>	
+
+{% endfor %}
+
+</section>
+
+
 
 {% endblock %}
