@@ -29,15 +29,14 @@ var app = app || {};
 
 // Self Invoking Anonymous Function
 (function(){
-   // Method 'init' roept twee methodes uit andere objecten op
+   // Hier worden 2 methodes geinit in een controller
    app.controller = { 
       init: function(){
          app.router.init();
          app.sections.init();
-         console.log("ready");
       }
    };
-   // Routie object met twee properties
+   // Het routie object aangeroepen met 2 properties, de about en movie
    app.router = {
       init: function () {  
          // Router-object
@@ -45,11 +44,9 @@ var app = app || {};
             about: function () {
                // Toggle methode voor beide pagina's
                app.sections.toggle("about");
-               console.log("toggle about");
             },
             movies: function () {
                app.sections.toggle("movies");
-               console.log("toggle movies");
             }
          });
       }
@@ -114,7 +111,7 @@ var app = app || {};
       toggle: function (section) {
          // Local Scope
          var selector = document.querySelectorAll("section");
-         // For loop die 'active' weghaald, parameter controleerd en vervolgens weer de class toevoegd 
+         // For loop die 'active' weghaald, parameter controleerd en vervolgens weer de class toevoegd zodat er kan worden getoggled. Dit staat gekoppeld aan de css class .active (display:block;)
          for (i = 0; i < selector.length; i++) {
             selector[i].classList.remove('active');
          }
