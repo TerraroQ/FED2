@@ -7,6 +7,7 @@ FED2
 ##CSS
 
 - CSS staat in CSS file en niet via JS
+- Responsive (foundation framework)
 
 ##HTML
 
@@ -19,3 +20,5 @@ FED2
 - Logische naamgeving (camelcase)
 - Overzichtelijke structuur
 - Heeft minimale comments
+- DRY
+- Gebruik van taskrunner (met node)
