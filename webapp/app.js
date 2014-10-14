@@ -22,3 +22,5 @@ app.listen(8080, function() {
   // app.close();
 });
 console.log('Express server started on port 8080');
+
+//Gebruik nodemon app in cmd om de server te starten
