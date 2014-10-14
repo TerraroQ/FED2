@@ -1,3 +1,4 @@
+var http = require('http');
 function MainController () {
     "use strict";
 
@@ -47,46 +48,57 @@ function MainController () {
         
         return res.render('home.html', data);
     };
-        // Routie object met twee properties
-    app.router = {
-        init: function () { 
-            // Router-object
-            routie({
-                about: function () {
-                    // Toggle methode voor beide pagina's
-                    app.sections.toggle("about");
-                    console.log("toggle about");
-                },
-                overview: function () {
-                    app.sections.toggle("overview");
-                    console.log("toggle overview");
-                }
-            });
+    this.movies = function(req, res, next){
+        var data = {};
+        var url = 'http://dennistel.nl/movies';
+        var content = getMovies(url);
+        console.log("<><>" + content);
+        
+        return res.render('movies.html', content);
+         
+
+        
+    }
+
+    this.movie = function(req, res, next){
+        var movie = getMovie(req.params.slug);
+        return res.render('movie.html', movie);
+    }
+
+}
+
+
+
+//SERVICE TO GET DATA
+function getMovie(slug){
+    if(slug == 'dark-knight'){
+        return {
+            title: 'The Dark Knight',
+            release: 'Release date: ',
+            date: '18 July 2008',
+            image: './assets/img/the-dark-knight.jpg',
+            p: 'When Batman, Gordon and Harvey Dent launch an assault on the mob, they let the clown out of the box, the Joker, bent on turning Gotham on itself and bringing any heroes down to his level.'
         }
-    };
-    app.sections = {
-        // Oproepen about en overview methodes
-        init: function () {
-            app.sections.about();
-            app.sections.overview();
-        },
-        about: function () {
-            Transparency.render(document.getElementById("about"), app.content.about, app.content.guideline);
-        },
-        overview: function () {
-            Transparency.render(document.getElementById("overview"), app.content.overview, app.content.guideline );
-        },
-        // Toggle methode met parameter 'section'
-        toggle: function (section) {
-            // Local Scope
-            var selector = document.querySelectorAll("section");
-            // For loop die 'active' weghaald, parameter controleerd en vervolgens weer de class toevoegd 
-            for (i = 0; i < selector.length; i++) {
-                selector[i].classList.remove('active');
-            }
-            document.getElementById(section).classList.add('active');
-        }
-    };
+    }
+
+}
+
+function getMovies(url){
+    var body = '';
+    http.get(url, function(res) {
+
+        res.on('data', function(chunk) {
+            var data = JSON.parse(chunk);
+            return data
+        });
+
+        res.on('end', function() {
+            console.log("Got response: ");
+        });
+    }).on('error', function(e) {
+          console.log("Got error: ", e);
+    });
+    return body;
 }
 
 module.exports = MainController;
