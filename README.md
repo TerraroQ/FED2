@@ -22,3 +22,6 @@ FED2
 - Heeft minimale comments
 - DRY
 - Gebruik van taskrunner (met node)
+
+
+# Zo werkt markup language niet vrind, doe is updaten
